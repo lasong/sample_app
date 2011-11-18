@@ -20,5 +20,15 @@ namespace :db do
                    :password => password,
                    :password_confirmation => password)
     end
+	User.create!(:name => "Nadege Fonkeu",
+                 :email => "pharmastudentin@yahoo.de",
+                 :password => "njofang",
+                 :password_confirmation => "njofang")
+	
+	40.times do
+      User.all(:limit => 6).each do |user|
+        user.microposts.create!(:content => Faker::Lorem.sentence(5))
+      end
+    end
   end
 end
